@@ -1,0 +1,208 @@
+Import re
+
+result = re.match(r'AV', 'AV Analytics AV')
+
+print result  (inaleta but numerically)
+
+print result.group(0)    (inaleta string)
+
+-----
+result = re.match(r'Analytics', 'AV Analytics AV')
+
+print result  (None)
+
+print result.start()
+print result.end()
+
+------------
+result=re.search(r'Analystics', 'AV Analytics AV')
+print result.group(0)  (Analystics)  first occurance
+
+-------
+result = re.findall(r'AV', 'AV Analytics AV')
+
+print result  (['AV','AV'])   ALL occurance
+-----------
+result = re.split(r'y', 'Analytics')
+
+print result  (['Anal','tics'])   
+
+---------
+result = re.split(r'i', 'Analytics Vidhya')
+
+print result  (['Analyt','cs V', 'dhya']) 
+
+----------
+result = re.split(r'i', 'Analytics Vidhya' maxsplit=1)
+
+print result  (['Analyt','cs Vidhya']) 
+-------------
+result=re.sub(r'India','the World','AV is largest Analytics community of India')
+result
+
+AV is largest Analytics community of the World
+
+---------------
+
+import re
+pattern=re.compile('AV')
+result=pattern.findall('AV Analytics Vidhya AV')
+print result
+
+result2=pattern.findall('AV is largest analytics community of india')
+print result2
+
+['AV','AV']
+['AV']
+
+----------
+(META AND LITERAL CHARACTERS)
+// "\w"   and "."  kila herufi inatenganishwa.
+
+import re
+result=re.findall(r'.','AV is largest analytics community of india')
+print result
+
+------------
+// "\w*"   and "\w+"  kila neno inatenganishwa.
+
+import re
+result=re.findall(r'.','AV is largest analytics community of india')
+print result
+
+-------------
+// "^\w+"   and "^\w+$"  inaprint neno la mwanzo na la mwisho respectively.
+
+import re
+result=re.findall(r'.','AV is largest analytics community of india')
+print result
+-------------------------
+// r'\w\w'  print na kugawa herufi 2 za  kila neno
+import re
+result=re.findall(r'\w\w','AV is largest analytics community of india')
+print result
+
+// r'\b\w'  print herufi 2 za mwanzo tu ktkt kila neno
+import re
+result=re.findall(r'\b\w','AV is largest analytics community of india')
+print result
+--------------------------
+
+//intoa neno moja tu baada ya @
+import re 
+result=re.findall(r'@\w+','abc.test@gmail.com','xyz@test.in','test.first@analyticsvidhya.com','first.test@rest.biz')
+print result
+--------------------------
+//intoa maneno yote baada ya @
+import re 
+result=re.findall(r'@\w+.\w+','abc.test@gmail.com','xyz@test.in','test.first@analyticsvidhya.com','first.test@rest.biz')
+print result
+----------------------------
+//intoa neno la mwisho .com
+import re 
+result=re.findall(r'@\w+.(\w+)','abc.test@gmail.com','xyz@test.in','test.first@analyticsvidhya.com','first.test@rest.biz')
+print result
+---------------------------- 
+//PRINT DATE
+result=re.findall(r'\d{2}-\d{2}-\d{4}', 'Amit 34-3456 12-05-2017, XYZ 56-4532 11-11-2011, ABC 67-8945 12-01-2009')
+print result
+----------------------------
+
+//PRINT YEAR ONLY
+result=re.findall(r'\d{2}-\d{2}-\d{4}', 'Amit 34-3456 12-05-2017, XYZ 56-4532 11-11-2011, ABC 67-8945 12-01-2009')
+print result
+-------------------------------
+
+//RETURN EACH WORD
+result = re.findall(r'\w+','AV is largest Analytics community of India')
+print result
+------------------------------
+//RETURN EACH WORD lakini anza na alphabet
+result = re.findall(r'[aeiouAEIOU]\w+','AV is largest Analytics community of India')
+print result
+-------------------------------
+//RETURN EACH WORD lakini anza na alphabet , skip ambazo hazinzi kwa alphabet
+result = re.findall(r'[aeiouAEIOU]\w+','AV is largest Analytics community of India')
+print result
+-------------------------------
+//RETURN EACH WORD lakini anza na alphabet , skip ambazo hazinzi kwa alphabet
+result = re.findall(r'[aeiouAEIOU ]\w+','AV is largest Analytics community of India')
+print result
+----------------------------
+//unahakiki nambari zilotumika
+import re
+li=['99999999999','99999999-999','9999999x9999']
+for val in li:
+	if re.match(r'[8-9]{1}[0-9]{9}',val) and len(val) == 10:
+		print 'yes'
+	else:
+		print 'no'
+-----------------------------
+//print string with multiple delimeter
+import re
+line = 'asdf fgdk;afed,fjek,asdf,foo'
+result=re.split(r'[;,\s]', line)
+print result
+-------------------------------
+//print string with multiple delimeter
+import re
+line = 'asdf fgdk;afed,fjek,asdf,foo'
+result=re.split(r'[;,\s]', '',  line)
+print result
+-----------------------------
+
+
+result = re.findall(r'<td>w+</td>\s<td>(\w+)</td>\s<td>(\w+)</td>',str)
+print result
+-----------------------------------
+import urllib2
+response = urllib2.urlopen('')
+html=response.read()
+
+----------------------------------
+seq of cha find patt/criteria
+
+'\d'
+
+
+A
+
+
+
+
+reg:https://pycon2016.regex.training/regex-intro
+
+
+
+
+
+indexing in pandas start with 0
+
+
+
+access element of 25th row of 5th column
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
